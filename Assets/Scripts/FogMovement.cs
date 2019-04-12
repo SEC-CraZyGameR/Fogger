@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class FogMovement : MonoBehaviour {
 
 	private Rigidbody2D rigidbody;
 	private bool isDied = false;
+	public GameObject panel;
+	public Text gameEndText;
 
 	void Start()
 	{
@@ -42,6 +46,18 @@ public class FogMovement : MonoBehaviour {
 			//Debug.Log ("Triggered");
 			isDied = true;
 			GetComponent<SpriteRenderer> ().color = Color.red;
+			gameEndText.text = "Game Over";
+			panel.SetActive (true);
 		}
+		if (col.CompareTag ("win")) {
+			//Debug.Log ("You Win");
+			isDied = true;
+			panel.SetActive (true);
+			gameEndText.text = "You Win";
+		}
+	}
+	public void reStart()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
 }
