@@ -24,6 +24,6 @@ public class Spawner : MonoBehaviour {
 		float yPos = Random.Range (-2.5f, 3);
 		Vector2 pos = new Vector2 (transform.position.x, yPos);
 		GameObject go = Instantiate (car, pos, Quaternion.Euler(new Vector3(0,0,90)));
-		Destroy (go, 1.0f);
+		Destroy (go, 1.5f);
 	}
 }
