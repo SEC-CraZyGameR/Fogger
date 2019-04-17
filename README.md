@@ -1,1 +1,1 @@
-<h>This is a geading</h>
+<h>This is a heading</h>
